@@ -1,0 +1,22 @@
+repos:
+  - repo: https://github.com/psf/black
+    rev: 23.10.0  # Используйте актуальную версию
+    hooks:
+      - id: black
+        language_version: python3
+
+  - repo: https://github.com/PyCQA/flake8
+    rev: 6.1.0  # Используйте актуальную версию
+    hooks:
+      - id: flake8
+        args: [--max-line-length=88]  # Совместимо с black
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: trailing-whitespace  # Удаляет пробелы в конце строк
+      - id: end-of-file-fixer    # Добавляет пустую строку в конце файла
+      - id: check-yaml          # Проверяет синтаксис YAML
+      - id: check-json          # Проверяет синтаксис JSON
+      - id: check-added-large-files  # Проверяет размер файлов
+        args: ['--maxkb=500']
